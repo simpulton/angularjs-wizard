@@ -1,0 +1,51 @@
+<!DOCTYPE html> 
+<html data-ng-app="App" data-ng-controller="AppCtrl">
+<head>
+	<title>AngularJS Wizard</title>
+	
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="app.css" />
+</head>
+<body>
+	<div class="modal" ng-cloak>
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h3>AngularJS Wizard</h3>
+		</div>
+		<div class="modal-body">
+			<div>
+				<button class="btn" ng-class="{'btn-primary':stepIndex === 0}" data-ng-click="setCurrentStep(0)">Step One</button>
+				<button class="btn" ng-class="{'btn-primary':stepIndex === 1}" data-ng-click="setCurrentStep(1)">Step Two</button>
+				<button class="btn" ng-class="{'btn-primary':stepIndex === 2}" data-ng-click="setCurrentStep(2)">Step Three</button>
+				<div data-ng-switch="getCurrentStep()" data-ng-animate="'wave'" class="slide-frame">
+					<div data-ng-switch-when="one">
+						<h3>Step One</h3>
+						<p>
+							Bacon ipsum dolor sit amet corned beef ground round chuck sausage. Brisket hamburger turducken, pork belly pork t-bone pig doner short loin fatback shankle. Hamburger turkey kielbasa drumstick brisket filet mignon shank sirloin fatback chicken. Shank ribeye pork belly rump, pastrami spare ribs ham hock t-bone turducken sausage drumstick. Biltong ground round frankfurter chicken tongue swine capicola brisket pastrami turducken rump pork. Tongue beef ribs filet mignon pork loin, turkey andouille short ribs.
+						</p>
+					</div>
+					<div data-ng-switch-when="two">
+						<h3>Step Two</h3>
+						<p>
+							Bacon ipsum dolor sit amet corned beef ground round chuck sausage. Brisket hamburger turducken, pork belly pork t-bone pig doner short loin fatback shankle. Hamburger turkey kielbasa drumstick brisket filet mignon shank sirloin fatback chicken. Shank ribeye pork belly rump, pastrami spare ribs ham hock t-bone turducken sausage drumstick. Biltong ground round frankfurter chicken tongue swine capicola brisket pastrami turducken rump pork. Tongue beef ribs filet mignon pork loin, turkey andouille short ribs.
+						</p>
+					</div>
+					<div data-ng-switch-when="three">
+						<h3>Step Three</h3>
+						<p>
+							Bacon ipsum dolor sit amet corned beef ground round chuck sausage. Brisket hamburger turducken, pork belly pork t-bone pig doner short loin fatback shankle. Hamburger turkey kielbasa drumstick brisket filet mignon shank sirloin fatback chicken. Shank ribeye pork belly rump, pastrami spare ribs ham hock t-bone turducken sausage drumstick. Biltong ground round frankfurter chicken tongue swine capicola brisket pastrami turducken rump pork. Tongue beef ribs filet mignon pork loin, turkey andouille short ribs.
+						</p>
+					</div>
+				</div>	
+			</div>
+		</div>	
+		<div class="modal-footer">
+			<a class="btn" data-ng-click="handlePrevious()" data-ng-show="stepIndex !== 0">Back</a>
+			<a class="btn btn-primary" data-ng-click="handleNext()">{{getNextLabel()}}</a>
+		</div>		
+	</div>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="lib/angular.min.js"></script> 
+	<script src="app.js"></script> 
+</body>
+</html>
