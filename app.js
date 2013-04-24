@@ -2,6 +2,8 @@ angular.module('App', [])
 .controller('AppCtrl', function($scope) {
   $scope.steps = ['one', 'two', 'three'];
   $scope.stepIndex = 0;
+  $scope.wizard = { tacos:2 };
+
 
   $scope.setCurrentStep = function(index) {
     $scope.stepIndex = index;
