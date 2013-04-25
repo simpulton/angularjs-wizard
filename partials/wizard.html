@@ -1,0 +1,79 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	<h3>AngularJS Taco Party</h3>
+</div>
+<div class="modal-body">
+	<div>
+		<button class="btn" ng-class="{'btn-primary':isCurrentStep(0)}" ng-click="setCurrentStep(0)">Step One</button>
+		<button class="btn" ng-class="{'btn-primary':isCurrentStep(1)}" ng-click="setCurrentStep(1)">Step Two</button>
+		<button class="btn" ng-class="{'btn-primary':isCurrentStep(2)}" ng-click="setCurrentStep(2)">Step Three</button>
+		<div ng-switch="getCurrentStep()" ng-animate="'wave'" class="slide-frame">
+			<div ng-switch-when="one">
+				<fieldset>  
+					<div class="control-group">  
+						<label class="control-label" for="firstName">First Name</label>  
+						<div class="controls">  
+							<input type="text" class="input-xlarge" id="firstName" ng-model="wizard.firstName">  
+						</div>  
+					</div>
+					<div class="control-group">  
+						<label class="control-label" for="lastName">Last Name</label>  
+						<div class="controls">
+							<input type="text" class="input-xlarge" id="lastName" ng-model="wizard.lastName">  
+						</div>  
+					</div> 
+					<div class="control-group">  
+						<div class="controls">  
+							<label class="checkbox">  
+								<input type="checkbox" id="optionsCheckbox" ng-model="wizard.coming">  
+								Are you coming to my taco party?
+							</label>  
+						</div>  
+					</div>  
+				</fieldset>  
+			</div>
+			<div ng-switch-when="two">
+				<fieldset>  
+					<div class="control-group">  
+						<label class="control-label" for="select01">How Many Tacos?</label>  
+						<div class="controls">  
+							<select id="select01" ng-model="wizard.tacos">  
+								<option>Unlimited</option>  
+								<option>2</option>  
+								<option>3</option>  
+								<option>4</option>  
+								<option>5</option>  
+							</select>  
+						</div>  
+					</div>  
+					<div class="control-group">  
+						<label class="control-label" for="multiSelect">Toppings?</label>  
+						<div class="controls">  
+							<select multiple="multiple" id="multiSelect" ng-model="wizard.toppings">  
+								<option>Cheese</option>  
+								<option>Guacamole</option>  
+								<option>Mild Salsa</option>  
+								<option>Hot Salsa</option>  
+								<option>Cilantro</option>  
+							</select>  
+						</div>  
+					</div>  
+				</fieldset>  
+			</div>
+			<div ng-switch-when="three">
+				<fieldset>  
+					<div class="control-group">  
+						<label class="control-label" for="textarea">Favorite Taco Memory</label>  
+						<div class="controls">  
+							<textarea class="input-xlarge" id="textarea" rows="8" ng-model="wizard.memory"></textarea>  
+						</div>  
+					</div>  
+				</fieldset>  
+			</div>
+		</div>	
+	</div>
+</div>	
+<div class="modal-footer">
+	<a class="btn" ng-click="handlePrevious()" ng-show="!isFirstStep()">Back</a>
+	<a class="btn btn-primary" ng-click="handleNext()">{{getNextLabel()}}</a>
+</div>	
