@@ -7,9 +7,20 @@
 	<link rel="stylesheet" type="text/css" href="app.css" />
 </head>
 <body>
-	<div class="well">
-		<button type="button" class="btn btn-large btn-primary ng-scope" bs-modal="'partials/wizard.html'" data-toggle="modal">AngularJS Wizard Demo</button>
+
+	<div class="container">
+
+      <form class="form-signin">
+        <h2 class="form-signin-heading">Launch the AngularJS Wizard</h2>
+		<div class="thumbnail">
+			<img src="images/nacho-libre.jpg" alt="Naaaaaaaaaaacho Libre!">
+		</div>
+		<button type="button" class="btn btn-large btn-primary ng-scope" 
+			bs-modal="'partials/wizard.html'" 
+			data-toggle="modal">I Dare You!</button>
+      </form>
 	</div>
+
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
