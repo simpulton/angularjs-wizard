@@ -22,6 +22,10 @@ body {
   margin-bottom: 10px;
 }
 
+.modal-body .btn-group {
+  margin-bottom: 10px;
+}
+
 .slide-frame {
   position:relative;
   height:200px;
