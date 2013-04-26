@@ -66,10 +66,18 @@
 			<div ng-switch-when="three">
 				<fieldset>  
 					<div class="control-group">  
-						<label class="control-label" for="textarea">Favorite Taco Memory</label>  
-						<div class="controls">  
-							<textarea class="input-xlarge" id="textarea" rows="8" ng-model="wizard.memory"></textarea>  
-						</div>  
+						<h4>Thanks {{wizard.firstName}} {{wizard.lastName}}!</h4>
+						<div class="row">
+							<div class="span2">
+								<img src="images/nacho-thanks.jpg" alt="Thanks!" width="160px" height="120px">
+							</div>
+							<div class="span4">
+						  		<p><strong>Coming:</strong> {{wizard.coming}}</p>
+						  		<p><strong>Tacos:</strong> {{wizard.tacos}}</p>
+						  		<p><strong>Toppings:</strong></p>
+								<div class="badge badge-success pull-left" ng-repeat="topping in wizard.toppings">{{topping}}</div>
+						  	</div>
+						</div>
 					</div>  
 				</fieldset>  
 			</div>
@@ -78,5 +86,5 @@
 </div>	
 <div class="modal-footer">
 	<a class="btn" ng-click="handlePrevious()" ng-show="!isFirstStep()">Back</a>
-	<a class="btn btn-primary" ng-click="handleNext()">{{getNextLabel()}}</a>
+	<a class="btn btn-primary" ng-click="handleNext(dismiss)">{{getNextLabel()}}</a>
 </div>	
