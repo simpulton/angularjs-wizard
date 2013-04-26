@@ -6,31 +6,31 @@ angular.module('App', ['$strap.directives'])
 
   $scope.isFirstStep = function() {
     return $scope.step === 0;
-  }
+  };
 
   $scope.isLastStep = function() {
     return $scope.step === ($scope.steps.length - 1);
-  }
+  };
   
   $scope.isCurrentStep = function(step) {
     return $scope.step === step;
-  }
+  };
 
   $scope.setCurrentStep = function(step) {
     $scope.step = step;
-  }
+  };
 
   $scope.getCurrentStep = function() {
     return $scope.steps[$scope.step];
-  }
+  };
 
   $scope.getNextLabel = function() {
-    return ($scope.step === ($scope.steps.length - 1)) ? 'Submit' : 'Next'; 
-  }
+    return ($scope.isLastStep()) ? 'Submit' : 'Next'; 
+  };
 
   $scope.handlePrevious = function() {
-    $scope.step -= ($scope.step === 0) ? 0 : 1;
-  }
+    $scope.step -= ($scope.isFirstStep()) ? 0 : 1;
+  };
 
   $scope.handleNext = function(dismiss) {
     if($scope.isLastStep()) {
@@ -38,5 +38,5 @@ angular.module('App', ['$strap.directives'])
     } else {
       $scope.step += 1;
     }
-  }
+  };
 });
