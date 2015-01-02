@@ -1,4 +1,4 @@
-angular.module('App', ['$strap.directives'])
+angular.module('App', ['ngAnimate', 'mgcrea.ngStrap.modal'])
 .controller('AppCtrl', function($scope) {
   $scope.steps = ['one', 'two', 'three'];
   $scope.step = 0;
@@ -32,9 +32,11 @@ angular.module('App', ['$strap.directives'])
     $scope.step -= ($scope.isFirstStep()) ? 0 : 1;
   };
 
-  $scope.handleNext = function(dismiss) {
+  $scope.modal = {};
+
+  $scope.handleNext = function(callback) {
     if($scope.isLastStep()) {
-      dismiss();
+      callback();
     } else {
       $scope.step += 1;
     }

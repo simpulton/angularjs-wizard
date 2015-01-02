@@ -4,8 +4,27 @@ body {
   background-color: #f5f5f5;
 }
 
+/* modal backdrop animations */
+.modal-backdrop.am-fade {
+  height: 100%;
+  opacity: .8;
+  transition: opacity .15s linear;
+}
+.modal-backdrop.am-fade.ng-enter {
+  opacity: 0;
+}
+.modal-backdrop.am-fade.ng-enter-active {
+  opacity: .8;
+}
+.modal-backdrop.am-fade.ng-leave {
+  opacity: .8;
+}
+.modal-backdrop.am-fade.ng-leave-active {
+  opacity: 0;
+}
+
 .form-signin {
-  max-width: 300px;
+  max-width: 360px;
   padding: 19px 29px 29px;
   margin: 0 auto 20px;
   background-color: #fff;
@@ -36,50 +55,53 @@ body {
   width:100%;
 }
 
-.modal-footer a {
-  width:50px;
+input[type=text], select {
+  width: 50% !important;
 }
 
-.slide-enter-setup, .slide-leave-setup, .wave-enter-setup, .wave-leave-setup {
+/* modal and step animations */
+.slide.ng-animate, .wave.ng-animate {
   -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
   -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
   -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
   transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
 }
 
-.slide-enter-setup {
-  position:absolute;
-  left:0;
+.slide.ng-enter {
+  position: absolute;
+  opacity: 0;
   top:-200px;
 }
 
-.slide-enter-start {
-  top:0;
+.slide.ng-enter-active {
+  opacity: 1;
+  top:0%;
 }
 
-.slide-leave-setup {
-  position:absolute;
-  top:0;
+.slide.ng-leave {
+  opacity: 1;
+  top:0%;
 }
 
-.slide-leave-start {
-  top:200px;
+.slide.ng-leave-active {
+  opacity: 0;
+  top:-200px;
 }
 
-.wave-enter-setup {
-  position:absolute;
+.wave.ng-enter {
+  position: absolute;
   left:-100%;
 }
 
-.wave-enter-start {
+.wave.ng-enter-active {
   left:0;
 }
 
-.wave-leave-setup {
-  position:absolute;
+.wave.ng-leave {
+  position: absolute;
   left:0;
 }
 
-.wave-leave-start {
+.wave.ng-leave-active {
   left:100%;
 }
