@@ -75,12 +75,12 @@ input[type=text], select {
 
 .slide.ng-enter-active {
   opacity: 1;
-  top:0%;
+  top:0;
 }
 
 .slide.ng-leave {
   opacity: 1;
-  top:0%;
+  top:0;
 }
 
 .slide.ng-leave-active {
