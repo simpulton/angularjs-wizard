@@ -1,5 +1,5 @@
-angular.module('App', ['ngAnimate', 'mgcrea.ngStrap.modal'])
-    .controller('AppCtrl', function ($scope) {
+angular.module('App', ['ngAnimate', 'ui.bootstrap'])
+    .controller('AppCtrl', function ($scope, $modal) {
         $scope.steps = ['one', 'two', 'three'];
         $scope.step = 0;
         $scope.wizard = {tacos: 2};
@@ -32,13 +32,17 @@ angular.module('App', ['ngAnimate', 'mgcrea.ngStrap.modal'])
             $scope.step -= ($scope.isFirstStep()) ? 0 : 1;
         };
 
-        $scope.modal = {};
-
         $scope.handleNext = function (callback) {
             if ($scope.isLastStep()) {
                 callback();
             } else {
                 $scope.step += 1;
             }
+        };
+
+        $scope.open = function() {
+          $modal.open({
+            templateUrl: "partials/wizard.html"
+          });
         };
     });

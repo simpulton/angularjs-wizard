@@ -4,8 +4,11 @@ body {
   background-color: #f5f5f5;
 }
 
+.modal {
+  background-color: rgba(0,0,0,0.8);
+}
 /* modal backdrop animations */
-.modal-backdrop.am-fade {
+/*.modal-backdrop.am-fade {
   height: 100%;
   opacity: .8;
   transition: opacity .15s linear;
@@ -21,7 +24,7 @@ body {
 }
 .modal-backdrop.am-fade.ng-leave-active {
   opacity: 0;
-}
+}*/
 
 .form-signin {
   max-width: 360px;
