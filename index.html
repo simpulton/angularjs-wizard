@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="App" ng-controller="AppCtrl">
+<html ng-app="App" ng-controller="AppCtrl as app">
     <head>
         <title>AngularJS Taco Party</title>
 
@@ -15,9 +15,21 @@
                 <div class="thumbnail">
                     <img src="images/nacho-libre.jpg" alt="Naaaaaaaaaaacho Libre!">
                 </div>
-                <button type="button" ng-click="open()" class="btn btn-large btn-primary ng-scope">
+                <button type="button" ng-click="app.open()" class="btn btn-large btn-primary ng-scope">
                     I Dare You!
                 </button>
+								<div class="alert-container">
+									<alert ng-if="app.reason" type="info" close="app.closeAlert()">{{app.reason}}</alert>
+								</div>
+								<div ng-if="app.summary">
+										<hr/>
+										<h3>Summary for {{app.summary.firstName}} {{app.summary.lastName}}</h3>
+										<p><strong>Coming: </strong>{{app.summary.coming}}</p>
+										<p><strong>Tacos: </strong>{{app.summary.tacos}}</p>
+										<p><strong>Toppings:</strong></p>
+										<div class="badge badge-success pull-left" ng-repeat="topping in app.summary.toppings">{{topping}}
+										</div>
+								</div>
             </div>
         </div>
 

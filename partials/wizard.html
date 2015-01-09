@@ -1,99 +1,99 @@
 <div class="modal-header">
-  <button type="button" class="close" ng-click="$close(result)" aria-hidden="true">&times;</button>
-  <h3>Taco Party!!!!!</h3>
+	<button type="button" class="close" ng-click="$dismiss('Wizard Closed')" aria-hidden="true">&times;</button>
+	<h3>Taco Party!!!!!</h3>
 </div>
 <div class="modal-body">
-  <div>
-    <div class="btn-group">
-      <button class="btn" ng-class="{'btn-primary':isCurrentStep(0)}" ng-click="setCurrentStep(0)">Uno</button>
-      <button class="btn" ng-class="{'btn-primary':isCurrentStep(1)}" ng-click="setCurrentStep(1)">Dos</button>
-      <button class="btn" ng-class="{'btn-primary':isCurrentStep(2)}" ng-click="setCurrentStep(2)">Tres</button>
-    </div>
-    <div ng-switch="getCurrentStep()" class="slide-frame">
-      <div ng-switch-when="one" class="wave">
-        <fieldset>
-          <div class="form-group">
-            <label class="control-label" for="firstName">First Name</label>
+	<div>
+		<div class="btn-group">
+			<button class="btn" ng-class="{'btn-primary':modal.isCurrentStep(0)}" ng-click="modal.setCurrentStep(0)">Uno</button>
+			<button class="btn" ng-class="{'btn-primary':modal.isCurrentStep(1)}" ng-click="modal.setCurrentStep(1)">Dos</button>
+			<button class="btn" ng-class="{'btn-primary':modal.isCurrentStep(2)}" ng-click="modal.setCurrentStep(2)">Tres</button>
+		</div>
+		<div ng-switch="modal.getCurrentStep()" class="slide-frame">
+			<div ng-switch-when="one" class="wave">
+				<fieldset>
+					<div class="form-group">
+						<label class="control-label" for="firstName">First Name</label>
 
-            <div>
-              <input class="form-control" type="text" class="input-xlarge" id="firstName" ng-model="wizard.firstName">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="control-label" for="lastName">Last Name</label>
+						<div>
+							<input class="form-control" type="text" class="input-xlarge" id="firstName" ng-model="modal.wizard.firstName">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="lastName">Last Name</label>
 
-            <div>
-              <input class="form-control" type="text" class="input-xlarge" id="lastName" ng-model="wizard.lastName">
-            </div>
-          </div>
-          <div class="form-group">
-            <div>
-              <label>
-                <input type="checkbox" id="optionsCheckbox" ng-model="wizard.coming">
-                Are you coming to my taco party?
-              </label>
-            </div>
-          </div>
-        </fieldset>
-      </div>
-      <div ng-switch-when="two" class="wave">
-        <fieldset>
-          <div class="form-group">
-            <label class="control-label" for="select01">How Many Tacos?</label>
+						<div>
+							<input class="form-control" type="text" class="input-xlarge" id="lastName" ng-model="modal.wizard.lastName">
+						</div>
+					</div>
+					<div class="form-group">
+						<div>
+							<label>
+								<input type="checkbox" id="optionsCheckbox" ng-model="modal.wizard.coming">
+								Are you coming to my taco party?
+							</label>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+			<div ng-switch-when="two" class="wave">
+				<fieldset>
+					<div class="form-group">
+						<label class="control-label" for="select01">How Many Tacos?</label>
 
-            <div class="controls">
-              <select class="form-control" id="select01" ng-model="wizard.tacos">
-                <option>Unlimited</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="control-label" for="multiSelect">Toppings?</label>
+						<div class="controls">
+							<select class="form-control" id="select01" ng-model="modal.wizard.tacos">
+								<option>Unlimited</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="multiSelect">Toppings?</label>
 
-            <div class="controls">
-              <select class="form-control" multiple="multiple" id="multiSelect" ng-model="wizard.toppings">
-                <option>Cheese</option>
-                <option>Guacamole</option>
-                <option>Mild Salsa</option>
-                <option>Hot Salsa</option>
-                <option>Cilantro</option>
-              </select>
-            </div>
-          </div>
-        </fieldset>
-      </div>
-      <div ng-switch-when="three" class="wave">
-        <fieldset>
-          <div class="control-group">
-            <h4>Thanks {{wizard.firstName}} {{wizard.lastName}}!</h4>
+						<div class="controls">
+							<select class="form-control" multiple="multiple" id="multiSelect" ng-model="modal.wizard.toppings">
+								<option>Cheese</option>
+								<option>Guacamole</option>
+								<option>Mild Salsa</option>
+								<option>Hot Salsa</option>
+								<option>Cilantro</option>
+							</select>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+			<div ng-switch-when="three" class="wave">
+				<fieldset>
+					<div class="control-group">
+						<h4>Thanks {{modal.wizard.firstName}} {{modal.wizard.lastName}}!</h4>
 
-            <div class="row">
-              <div class="col-xs-4">
-                <img src="images/nacho-thanks.jpg" alt="Thanks!" width="160px" height="120px">
-              </div>
-              <div class="col-xs-4">
-                <p><strong>Coming:</strong> {{wizard.coming}}</p>
+						<div class="row">
+							<div class="col-xs-4">
+								<img src="images/nacho-thanks.jpg" alt="Thanks!" width="160px" height="120px">
+							</div>
+							<div class="col-xs-4">
+								<p><strong>Coming:</strong> {{modal.wizard.coming}}</p>
 
-                <p><strong>Tacos:</strong> {{wizard.tacos}}</p>
+								<p><strong>Tacos:</strong> {{modal.wizard.tacos}}</p>
 
-                <p><strong>Toppings:</strong></p>
+								<p><strong>Toppings:</strong></p>
 
-                <div class="badge badge-success pull-left" ng-repeat="topping in wizard.toppings">{{topping}}
-                </div>
-              </div>
-            </div>
-          </div>
-        </fieldset>
-      </div>
-    </div>
-  </div>
+								<div class="badge badge-success pull-left" ng-repeat="topping in modal.wizard.toppings">{{topping}}
+								</div>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+	</div>
 </div>
 <div class="modal-footer">
-  <a class="btn btn-default" ng-click="handlePrevious()" ng-show="!isFirstStep()">Back</a>
-  <a class="btn btn-primary" ng-click="handleNext($hide)">{{getNextLabel()}}</a>
+	<a class="btn btn-default" ng-click="modal.handlePrevious()" ng-show="!modal.isFirstStep()">Back</a>
+	<a class="btn btn-primary" ng-click="modal.handleNext($close, modal.wizard)">{{modal.getNextLabel()}}</a>
 </div>
 
