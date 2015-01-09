@@ -94,6 +94,6 @@
 </div>
 <div class="modal-footer">
 	<a class="btn btn-default" ng-click="modal.handlePrevious()" ng-show="!modal.isFirstStep()">Back</a>
-	<a class="btn btn-primary" ng-click="modal.handleNext($close, modal.wizard)">{{modal.getNextLabel()}}</a>
+	<a class="btn btn-primary" ng-click="modal.handleNext(modal.wizard)">{{modal.getNextLabel()}}</a>
 </div>
 
