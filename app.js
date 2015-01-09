@@ -1,42 +1,71 @@
-angular.module('App', ['$strap.directives'])
-.controller('AppCtrl', function($scope) {
-  $scope.steps = ['one', 'two', 'three'];
-  $scope.step = 0;
-  $scope.wizard = { tacos: 2 };
+angular.module('App', ['ngAnimate', 'ui.bootstrap'])
+    .controller('AppCtrl', function ($scope, $modal) {
+        var app = this;
 
-  $scope.isFirstStep = function() {
-    return $scope.step === 0;
-  };
+        app.closeAlert = function () {
+            app.reason = null;
+        };
 
-  $scope.isLastStep = function() {
-    return $scope.step === ($scope.steps.length - 1);
-  };
-  
-  $scope.isCurrentStep = function(step) {
-    return $scope.step === step;
-  };
+        app.open = function () {
+            var modalInstance = $modal.open({
+                templateUrl: 'partials/wizard.html',
+                controller: 'ModalCtrl',
+                controllerAs: 'modal'
+            });
 
-  $scope.setCurrentStep = function(step) {
-    $scope.step = step;
-  };
+            modalInstance.result
+                .then(function (data) {
+                    app.closeAlert();
+                    app.summary = data;
+                }, function (reason) {
+                    app.reason = reason;
+                });
+        };
+    })
+    .controller('ModalCtrl', function ($modalInstance) {
+        var modal = this;
 
-  $scope.getCurrentStep = function() {
-    return $scope.steps[$scope.step];
-  };
+        modal.steps = ['one', 'two', 'three'];
+        modal.step = 0;
+        modal.wizard = {tacos: 2};
 
-  $scope.getNextLabel = function() {
-    return ($scope.isLastStep()) ? 'Submit' : 'Next'; 
-  };
+        modal.isFirstStep = function () {
+            return modal.step === 0;
+        };
 
-  $scope.handlePrevious = function() {
-    $scope.step -= ($scope.isFirstStep()) ? 0 : 1;
-  };
+        modal.isLastStep = function () {
+            return modal.step === (modal.steps.length - 1);
+        };
 
-  $scope.handleNext = function(dismiss) {
-    if($scope.isLastStep()) {
-      dismiss();
-    } else {
-      $scope.step += 1;
-    }
-  };
-});
+        modal.isCurrentStep = function (step) {
+            return modal.step === step;
+        };
+
+        modal.setCurrentStep = function (step) {
+            modal.step = step;
+        };
+
+        modal.getCurrentStep = function () {
+            return modal.steps[modal.step];
+        };
+
+        modal.getNextLabel = function () {
+            return (modal.isLastStep()) ? 'Submit' : 'Next';
+        };
+
+        modal.handlePrevious = function () {
+            modal.step -= (modal.isFirstStep()) ? 0 : 1;
+        };
+
+        modal.handleNext = function () {
+            if (modal.isLastStep()) {
+                $modalInstance.close(modal.wizard);
+            } else {
+                modal.step += 1;
+            }
+        };
+
+        modal.dismiss = function(reason) {
+            $modalInstance.dismiss(reason);
+        };
+    });
