@@ -57,11 +57,15 @@ angular.module('App', ['ngAnimate', 'ui.bootstrap'])
             modal.step -= (modal.isFirstStep()) ? 0 : 1;
         };
 
-        modal.handleNext = function (data) {
+        modal.handleNext = function () {
             if (modal.isLastStep()) {
-                $modalInstance.close(data);
+                $modalInstance.close(modal.wizard);
             } else {
                 modal.step += 1;
             }
+        };
+
+        modal.dismiss = function(reason) {
+            $modalInstance.dismiss(reason);
         };
     });
