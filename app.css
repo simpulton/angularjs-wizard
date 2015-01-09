@@ -12,51 +12,8 @@ body {
   margin-top: 10px;
   white-space: nowrap;
 }
-.alert.ng-animate {
-  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-}
-.alert.ng-enter {
-  opacity: 0;
-  max-width: 0;
-  max-height: 0;
-  padding: 0;
-  border-width: 0;
-  margin: 0;
-}
-
-.alert.ng-enter-active {
-  opacity: 1;
-  max-width: 100%;
-  max-height: 100px;
-  padding: 15px 35px 15px 15px;
-  border-width: 1px;
-  margin: 10px 0 20px;
-}
-
-.alert.ng-leave {
-  opacity: 1;
-  max-width: 100%;
-  max-height: 100px;
-  padding: 15px 35px 15px 15px;
-  border-width: 1px;
-  margin: 10px 0 20px;
-}
-
-.alert.ng-leave-active {
-  opacity: 0;
-  max-width: 0;
-  max-height: 0;
-  padding: 0;
-  border-width: 0;
-  margin:0;
-}
 .alert-container {
   -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
   transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
 }
 
@@ -96,11 +53,51 @@ input[type=text], select {
   width: 50% !important;
 }
 
-/* modal and step animations */
-.modal-content.ng-animate, .wave.ng-animate {
+/* alert animations */
+
+.alert.ng-enter, .alert.ng-leave {
   -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+.alert.ng-enter {
+  opacity: 0;
+  max-width: 0;
+  max-height: 0;
+  padding: 0;
+  border-width: 0;
+  margin: 0;
+}
+
+.alert.ng-enter-active {
+  opacity: 1;
+  max-width: 100%;
+  max-height: 100px;
+  padding: 15px 35px 15px 15px;
+  border-width: 1px;
+  margin: 10px 0 20px;
+}
+
+.alert.ng-leave {
+  opacity: 1;
+  max-width: 100%;
+  max-height: 100px;
+  padding: 15px 35px 15px 15px;
+  border-width: 1px;
+  margin: 10px 0 20px;
+}
+
+.alert.ng-leave-active {
+  opacity: 0;
+  max-width: 0;
+  max-height: 0;
+  padding: 0;
+  border-width: 0;
+  margin:0;
+}
+
+/* modal and step animations */
+.wave.ng-enter, .wave.ng-leave {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
   transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
 }
 
