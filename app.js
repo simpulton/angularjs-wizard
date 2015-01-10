@@ -1,5 +1,5 @@
 angular.module('App', ['ngAnimate', 'ui.bootstrap'])
-    .controller('AppCtrl', function ($scope, $modal) {
+    .controller('AppCtrl', function ($modal) {
         var app = this;
 
         app.closeAlert = function () {
